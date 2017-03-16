@@ -1,0 +1,32 @@
+def mean(n):
+    x = len(n)
+    sum = 0
+    for i in n:
+        sum += i
+    return sum / x
+
+
+def median(n):
+    n_s = sorted(n)
+    x = len(n)
+    h = int(x / 2)
+    g = int((x - 1) / 2)
+    if x % 2 == 0:
+        return (n_s[h - 1] + n_s[h]) / 2
+    else:
+        return n_s[g]
+
+
+def mode(n):
+    n_s = sorted(n, reverse=False)
+    x = len(n)
+    a = []
+    for i in n_s:
+        c = n_s.count(i)
+        k = (c, i)
+        a.append(k)
+    a_s = sorted(a, reverse=True)
+    if a_s[0][0] > 1:
+        return a_s[0][1]
+    else:
+        return n_s[0]
